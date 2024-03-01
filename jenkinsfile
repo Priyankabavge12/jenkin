@@ -1,0 +1,46 @@
+pipeline {
+    
+
+    stage('Build') {
+        agent {
+            label 'slave1'
+        }
+        steps{
+            sh 'sleep 15'
+
+        }
+     stage('Build1') {
+        agent {
+            label 'slave1'
+        }
+        steps{
+            sh 'sleep 15'
+
+        }
+
+    }
+    stage('Test') {
+        agent {
+            label 'slave2"'
+        }
+       steps{
+           sh '''
+           #!/bin/bash
+           sleep 15
+           ls
+           '''
+    }
+} 
+    stage('Test') {
+        agent {
+            label 'slave2"'
+        }
+       steps{
+           sh '''
+           #!/bin/bash
+           sleep 15
+           ls
+           '''
+    }
+}
+}
