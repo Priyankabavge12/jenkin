@@ -1,6 +1,5 @@
 pipeline {
-    
-
+ agent none
     stage('Build') {
         agent {
             label 'slave1'
@@ -31,7 +30,7 @@ pipeline {
            '''
     }
 } 
-    stage('Test') {
+    stage('Test1') {
         agent {
             label 'slave2"'
         }
@@ -43,4 +42,5 @@ pipeline {
            '''
     }
 }
-} }
+} 
+}
