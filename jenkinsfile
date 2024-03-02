@@ -1,54 +1,25 @@
 pipeline {
- agent none
-stages{
-    stage('Build') {
-        agent {
-            label 'slave1'
-        }
-        steps{
-            sh 'sleep 15'
-
-        }
-    }
-     stage('Build1') {
-        agent {
-            label 'slave1'
-        }
-        steps{
-            sh 'sleep 15'
-
+    agent none
+    stages {
+        stage('Build') {
+            agent {
+                label 'slave1'
+            }
+            steps {
+                sh 'sleep 10'
+            }
         }
 
-    }
-    stage('Test') {
-        agent {
-            label 'slave2"'
+        stage('Test') {
+            agent any
+            steps {
+                sh '''
+                    #!/bin/bash
+                    ls -lrt
+                    sleep 10
+                '''
+            }
         }
-       steps{
-           sh '''
-           #!/bin/bash
-           sleep 15
-           ls
-           '''
-    }
-} 
-    stage('Test1') {
-        agent {
-            label 'slave2"'
-        }
-       steps{
-           sh '''
-           #!/bin/bash
-           sleep 15
-           ls
-           pwd
-           '''
-    }
+
     }
 }
-<<<<<<< HEAD
-=======
-} 
-}
-
->>>>>>> 541cd712e6220d6aeb2d314f5615316aaebc39c9
