@@ -1,6 +1,6 @@
 pipeline {
-    
-
+ agent none
+stages{
     stage('Build') {
         agent {
             label 'slave1'
@@ -46,3 +46,9 @@ pipeline {
     }
     }
 }
+<<<<<<< HEAD
+=======
+} 
+}
+
+>>>>>>> 541cd712e6220d6aeb2d314f5615316aaebc39c9
